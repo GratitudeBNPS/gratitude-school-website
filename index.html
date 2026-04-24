@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gratitude Bilingual Nursery & Primary School - Mile 3, Nkwen, Bamenda</title>
+  <meta name="description" content="Quality bilingual education for children ages 3-11 in Bamenda, Cameroon. Affordable, religious-based learning environment preparing students for Common Entrance and FSLC examinations.">
+  <meta name="keywords" content="Gratitude School, Bamenda, Cameroon, bilingual education, nursery school, primary school, Nkwen">
+  <meta property="og:title" content="Gratitude Bilingual Nursery & Primary School">
+  <meta property="og:description" content="Your child's home away from home - Quality bilingual education in Bamenda, Cameroon">
+  <meta property="og:type" content="website">
+  
+  <!-- React and Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    body { 
+      margin: 0; 
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    }
+    /* Loading state */
+    #loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 20px;
+      color: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="loading">Loading Gratitude School...</div>
+  </div>
+  
+  <script type="text/babel" src="./gratitude-school-website.jsx"></script>
+  <script type="text/babel">
+    // Import icons from Lucide
+    const { Mail, MapPin, Phone, BookOpen, Users, Award, Heart, ChevronRight, Menu, X } = lucide;
+    
+    // Render the app
+    ReactDOM.createRoot(document.getElementById('root')).render(<GratitudeSchoolWebsite />);
+  </script>
+</body>
+</html>
