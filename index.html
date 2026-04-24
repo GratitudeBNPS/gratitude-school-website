@@ -1,357 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gratitude Bilingual Nursery & Primary School - Bamenda</title>
-  <meta name="description" content="Quality bilingual education for children ages 3-11 in Bamenda, Cameroon.">
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>body{margin:0;padding:0;}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gratitude Bilingual Nursery & Primary School - Bamenda, Cameroon</title>
+<meta name="description" content="Quality bilingual education for children ages 3-11 in Bamenda, Cameroon.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:#1a1a1a;background:#f8fafc;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  nav{background:linear-gradient(135deg,#1e3a8a,#1e40af);position:sticky;top:0;z-index:100;box-shadow:0 3px 12px rgba(0,0,0,.2);}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:72px;}
+  .logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+  .logo-icon{width:46px;height:46px;background:#84cc16;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+  .logo-icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .logo-text .t1{color:#fff;font-size:18px;font-weight:700;line-height:1.2;}
+  .logo-text .t2{color:rgba(255,255,255,.85);font-size:12px;}
+  .nav-links{display:flex;gap:4px;}
+  .nav-links a{color:#fff;text-decoration:none;padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;transition:.2s;}
+  .nav-links a:hover,.nav-links a.active{background:#84cc16;color:#1a1a1a;}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+  .hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;}
+  .mobile-menu{display:none;flex-direction:column;border-top:1px solid rgba(255,255,255,.15);padding:8px 0;}
+  .mobile-menu a{color:#fff;text-decoration:none;padding:12px 4px;font-size:15px;display:block;}
+  .mobile-menu a:hover{color:#84cc16;}
+  @media(max-width:768px){.nav-links{display:none;}.hamburger{display:block;}.mobile-menu.open{display:flex;}}
+  .page{display:none;}.page.active{display:block;}
+  .btn{background:#1e3a8a;color:#fff;border:none;padding:13px 30px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.2s;text-decoration:none;}
+  .btn:hover{background:#1e40af;transform:translateY(-2px);}
+  .btn-green{background:#84cc16;color:#1a1a1a;}
+  .btn-green:hover{background:#65a30d;}
+  .btn-outline{background:transparent;color:#1e3a8a;border:2px solid #1e3a8a;padding:13px 30px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.2s;text-decoration:none;}
+  .btn-outline:hover{background:#1e3a8a;color:#fff;}
+  .hero{background:linear-gradient(160deg,#eef2ff 0%,#f8fafc 60%);padding:80px 24px 60px;text-align:center;}
+  .hero-badge{background:#84cc16;color:#1a1a1a;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;display:inline-block;margin-bottom:24px;}
+  .hero h1{font-size:52px;font-weight:900;line-height:1.1;margin-bottom:20px;color:#111;}
+  .hero h1 span{background:linear-gradient(135deg,#1e3a8a,#84cc16);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero p{font-size:19px;color:#555;max-width:620px;margin:0 auto 36px;line-height:1.7;}
+  .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  @media(max-width:600px){.hero h1{font-size:32px;}}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:680px;margin:50px auto 0;}
+  .stat{background:#fff;border-radius:14px;padding:28px 20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.07);}
+  .stat-icon{font-size:28px;margin-bottom:12px;}
+  .stat h3{font-size:28px;font-weight:800;color:#1e3a8a;margin-bottom:4px;}
+  .stat p{font-size:13px;color:#666;}
+  .why{padding:70px 24px;background:#fff;}
+  .section-title{text-align:center;font-size:34px;font-weight:800;margin-bottom:48px;}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
+  .feature{text-align:center;padding:28px 20px;}
+  .feat-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:32px;}
+  .feature h3{font-size:18px;font-weight:700;margin-bottom:8px;}
+  .feature p{color:#666;line-height:1.6;font-size:15px;}
+  .cta-band{background:linear-gradient(135deg,#1e3a8a,#1e40af);color:#fff;padding:70px 24px;text-align:center;}
+  .cta-band h2{font-size:34px;font-weight:800;margin-bottom:12px;}
+  .cta-band p{font-size:17px;opacity:.9;max-width:480px;margin:0 auto 28px;}
+  .page-header{text-align:center;padding:60px 24px 44px;}
+  .page-header h1{font-size:42px;font-weight:800;margin-bottom:12px;}
+  .page-header p{font-size:18px;color:#666;max-width:560px;margin:0 auto;}
+  @media(max-width:600px){.page-header h1{font-size:28px;}}
+  .card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:36px;margin-bottom:24px;}
+  .card h2{font-size:22px;font-weight:700;color:#1e3a8a;margin-bottom:14px;}
+  .card p{line-height:1.8;color:#444;font-size:16px;}
+  .card ul,.card ol{padding-left:22px;color:#444;line-height:2.2;font-size:15px;}
+  .card-accent{border-left:5px solid #84cc16;}
+  .card-blue{border-left:5px solid #1e3a8a;}
+  .staff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+  .staff-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:32px;text-align:center;}
+  .avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#1e3a8a,#84cc16);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;margin:0 auto 16px;}
+  .staff-card h3{font-size:19px;font-weight:700;margin-bottom:4px;}
+  .staff-role{color:#1e3a8a;font-weight:600;font-size:14px;margin-bottom:16px;}
+  .staff-detail{border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;padding:12px 0;margin-bottom:16px;}
+  .staff-detail p{font-size:13px;color:#666;margin-bottom:3px;}
+  .staff-email{display:inline-flex;align-items:center;gap:6px;color:#1e3a8a;font-size:13px;font-weight:600;border:2px solid #1e3a8a;padding:8px 16px;border-radius:8px;text-decoration:none;transition:.2s;}
+  .staff-email:hover{background:#1e3a8a;color:#fff;}
+  .director{background:linear-gradient(135deg,#1e3a8a,#1e40af);border-radius:20px;padding:44px;color:#fff;display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:12px;}
+  .dir-avatar{width:100px;height:100px;background:#84cc16;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800;color:#1a1a1a;flex-shrink:0;}
+  .director h3{font-size:26px;font-weight:800;margin-bottom:6px;}
+  .director .role{opacity:.85;font-size:15px;margin-bottom:10px;}
+  .director .bio{opacity:.9;line-height:1.6;}
+  .curriculum{background:#eef2ff;border-radius:18px;padding:44px;margin-top:12px;}
+  .curriculum h2{text-align:center;font-size:26px;font-weight:800;margin-bottom:32px;}
+  .curriculum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .subj{background:#fff;border-radius:10px;padding:18px;border-top:4px solid #1e3a8a;}
+  .subj:nth-child(even){border-top-color:#84cc16;}
+  .subj h3{font-size:15px;font-weight:700;color:#1e3a8a;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-method{display:flex;gap:18px;margin-bottom:30px;}
+  .method-icon{width:52px;height:52px;background:linear-gradient(135deg,#1e3a8a,#84cc16);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;}
+  .method-details h3{font-size:16px;font-weight:700;margin-bottom:4px;}
+  .method-details p,.method-details a{color:#666;font-size:15px;line-height:1.6;text-decoration:none;}
+  .method-details a:hover{color:#1e3a8a;}
+  .hours-box{background:#eef2ff;border-radius:12px;padding:20px 24px;}
+  .hours-box h3{font-weight:700;margin-bottom:6px;}
+  .hours-box p{color:#444;font-size:15px;}
+  .form-group{margin-bottom:18px;}
+  .form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:2px solid #e5e7eb;border-radius:8px;font-size:15px;font-family:inherit;outline:none;transition:border .2s;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#1e3a8a;}
+  .form-group textarea{resize:vertical;}
+  .admit-cta{background:linear-gradient(135deg,#1e3a8a,#1e40af);border-radius:16px;padding:40px;color:#fff;text-align:center;}
+  .admit-cta h2{font-size:24px;font-weight:800;margin-bottom:10px;}
+  .admit-cta p{opacity:.9;font-size:15px;margin-bottom:24px;max-width:460px;margin-left:auto;margin-right:auto;}
+  footer{background:#111;color:#fff;padding:52px 24px 20px;margin-top:70px;}
+  .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:36px;margin-bottom:36px;}
+  .footer-col h3{font-size:16px;font-weight:700;margin-bottom:10px;}
+  .footer-col h4{font-size:14px;font-weight:600;color:#84cc16;margin-bottom:10px;}
+  .footer-col p{font-size:13px;opacity:.7;line-height:1.7;}
+  .footer-col a{display:block;color:rgba(255,255,255,.72);font-size:13px;padding:3px 0;text-decoration:none;cursor:pointer;}
+  .footer-col a:hover{color:#84cc16;}
+  .footer-tagline{color:#84cc16;font-style:italic;font-size:13px;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;text-align:center;font-size:12px;opacity:.55;}
+</style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="text/babel">
-    const { Mail, MapPin, BookOpen, Users, Award, Heart, ChevronRight, Menu, X } = lucide;
 
-    function App() {
-      const [page, setPage] = React.useState('home');
-      const [menuOpen, setMenuOpen] = React.useState(false);
-
-      const nav = [
-        {id:'home',name:'Home'},
-        {id:'about',name:'About'},
-        {id:'programs',name:'Programs'},
-        {id:'staff',name:'Staff'},
-        {id:'admissions',name:'Admissions'},
-        {id:'contact',name:'Contact'},
-      ];
-
-      const go = (id) => { setPage(id); setMenuOpen(false); window.scrollTo({top:0}); };
-
-      const staffList = [
-        {name:'Banseka Terence', role:'Head Teacher', exp:'9 years experience', note:'Art & Craft enthusiast', email:'banseka.terence@gratitudebnps.com'},
-        {name:'Ntaintain Natalia', role:'Religious Head', exp:'10+ years experience', note:'Religious development specialist', email:'ntaintain.natalia@gratitudebnps.com'},
-        {name:'Nlinwe Jasper', role:'Communications Head', exp:'9+ years experience', note:'Photography & school magazine', email:'nlinwe.jasper@gratitudebnps.com'},
-        {name:'Diang Elizabeth', role:'Assistant Head Teacher', exp:'9+ years experience', note:'Overall child development', email:'diang.elizabeth@gratitudebnps.com'},
-      ];
-
-      const initials = (name) => name.split(' ').map(n=>n[0]).join('');
-
-      return (
-        <div style={{fontFamily:"'Segoe UI',sans-serif",color:'#1a1a1a',background:'#f8fafc',minHeight:'100vh'}}>
-          <style>{`
-            *{box-sizing:border-box;margin:0;padding:0;}
-            .nb{background:none;border:none;cursor:pointer;}
-            .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-            .btn{background:#1e3a8a;color:#fff;border:none;padding:13px 30px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
-            .btn:hover{background:#1e40af;transform:translateY(-2px);}
-            .btnout{background:transparent;color:#1e3a8a;border:2px solid #1e3a8a;padding:13px 30px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;}
-            .btnout:hover{background:#1e3a8a;color:#fff;}
-            .card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:36px;}
-            h1.pg{font-size:44px;font-weight:800;text-align:center;margin-bottom:14px;}
-            p.pg{font-size:18px;color:#666;text-align:center;margin-bottom:48px;}
-            @media(max-width:768px){h1.pg{font-size:30px;}}
-          `}</style>
-
-          <header style={{background:'linear-gradient(135deg,#1e3a8a,#1e40af)',color:'#fff',position:'sticky',top:0,zIndex:100,boxShadow:'0 3px 12px rgba(0,0,0,.15)'}}>
-            <div className="wrap">
-              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',minHeight:72}}>
-                <div style={{display:'flex',alignItems:'center',gap:14}}>
-                  <div style={{width:46,height:46,background:'#84cc16',borderRadius:10,display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <BookOpen size={24} color="#fff" />
-                  </div>
-                  <div>
-                    <div style={{fontSize:18,fontWeight:700,lineHeight:1.2}}>Gratitude Bilingual</div>
-                    <div style={{fontSize:12,opacity:.85}}>Nursery & Primary School</div>
-                  </div>
-                </div>
-                <div style={{display:'flex',gap:4}} className="desknav">
-                  {nav.map(n=>(
-                    <button key={n.id} className="nb" onClick={()=>go(n.id)}
-                      style={{color:'#fff',padding:'8px 14px',borderRadius:8,fontSize:14,fontWeight:500,background:page===n.id?'#84cc16':'transparent',color:page===n.id?'#1a1a1a':'#fff',transition:'all .2s'}}>
-                      {n.name}
-                    </button>
-                  ))}
-                </div>
-                <button className="nb" onClick={()=>setMenuOpen(!menuOpen)} style={{color:'#fff',display:'none'}} id="hambtn">
-                  {menuOpen ? <X size={24}/> : <Menu size={24}/>}
-                </button>
-              </div>
-              {menuOpen && (
-                <div style={{borderTop:'1px solid rgba(255,255,255,.15)',paddingBottom:12}}>
-                  {nav.map(n=>(
-                    <button key={n.id} className="nb" onClick={()=>go(n.id)}
-                      style={{display:'block',width:'100%',textAlign:'left',color:'#fff',padding:'11px 4px',fontSize:15,background:page===n.id?'rgba(132,204,22,.2)':'transparent',fontWeight:page===n.id?600:400}}>
-                      {n.name}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </header>
-
-          <style>{`
-            @media(max-width:768px){
-              .desknav{display:none !important;}
-              #hambtn{display:flex !important;}
-            }
-          `}</style>
-
-          {page==='home' && (
-            <div>
-              <section style={{background:'linear-gradient(160deg,#f0f4ff 0%,#f8fafc 60%)',padding:'80px 24px 60px',textAlign:'center'}}>
-                <div className="wrap">
-                  <span style={{background:'#84cc16',color:'#1a1a1a',padding:'6px 18px',borderRadius:20,fontSize:13,fontWeight:700,display:'inline-block',marginBottom:24}}>Est. 2006 · Bamenda, Cameroon</span>
-                  <h1 style={{fontSize:52,fontWeight:900,lineHeight:1.1,marginBottom:20,color:'#111'}}>
-                    Your Child's <span style={{background:'linear-gradient(135deg,#1e3a8a,#84cc16)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>Home Away<br/>from Home</span>
-                  </h1>
-                  <p style={{fontSize:20,color:'#555',maxWidth:640,margin:'0 auto 40px',lineHeight:1.7}}>
-                    Affordable quality bilingual education for children aged 3–11, preparing them for Common Entrance, FSLC and life beyond.
-                  </p>
-                  <div style={{display:'flex',gap:16,justifyContent:'center',flexWrap:'wrap'}}>
-                    <button className="btn" onClick={()=>go('admissions')}>Apply Now <ChevronRight size={18}/></button>
-                    <button className="btnout" onClick={()=>go('about')}>Learn More</button>
-                  </div>
-                  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:20,marginTop:60,maxWidth:700,marginLeft:'auto',marginRight:'auto'}}>
-                    {[
-                      {icon:<Heart size={28}/>,val:'18+',label:'Years of Excellence'},
-                      {icon:<Users size={28}/>,val:'Ages 3-11',label:'Nursery & Primary'},
-                      {icon:<Award size={28}/>,val:'CAPIEM',label:'Certified Teachers'},
-                    ].map((s,i)=>(
-                      <div key={i} style={{background:'#fff',borderRadius:14,padding:'28px 20px',boxShadow:'0 2px 12px rgba(0,0,0,.07)'}}>
-                        <div style={{color:'#84cc16',marginBottom:12}}>{s.icon}</div>
-                        <div style={{fontSize:28,fontWeight:800,color:'#1e3a8a',marginBottom:4}}>{s.val}</div>
-                        <div style={{fontSize:13,color:'#666'}}>{s.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-              <section style={{padding:'70px 24px',background:'#fff'}}>
-                <div className="wrap">
-                  <h2 style={{textAlign:'center',fontSize:36,fontWeight:800,marginBottom:50}}>Why Choose Gratitude?</h2>
-                  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(250px,1fr))',gap:28}}>
-                    {[
-                      {icon:<BookOpen size={30}/>,color:'#84cc16',title:'Bilingual Education',desc:'English and French instruction preparing students for a multilingual future.'},
-                      {icon:<Heart size={30}/>,color:'#1e3a8a',title:'Religious Values',desc:'Character development rooted in faith, discipline and moral excellence.'},
-                      {icon:<Award size={30}/>,color:'#84cc16',title:'Modern Facilities',desc:'State-of-the-art infrastructure providing a conducive learning environment.'},
-                      {icon:<Users size={30}/>,color:'#1e3a8a',title:'Expert Staff',desc:'Highly qualified, CAPIEM-certified teachers who genuinely love children.'},
-                    ].map((f,i)=>(
-                      <div key={i} style={{textAlign:'center',padding:'32px 24px'}}>
-                        <div style={{width:72,height:72,borderRadius:18,background:f.color,display:'flex',alignItems:'center',justifyContent:'center',color:'#fff',margin:'0 auto 20px'}}>{f.icon}</div>
-                        <h3 style={{fontSize:19,fontWeight:700,marginBottom:10}}>{f.title}</h3>
-                        <p style={{color:'#666',lineHeight:1.6,fontSize:15}}>{f.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-              <section style={{background:'linear-gradient(135deg,#1e3a8a,#1e40af)',color:'#fff',padding:'70px 24px',textAlign:'center'}}>
-                <div className="wrap">
-                  <h2 style={{fontSize:36,fontWeight:800,marginBottom:14}}>Ready to Join Our Family?</h2>
-                  <p style={{fontSize:17,opacity:.9,marginBottom:32,maxWidth:500,margin:'0 auto 32px'}}>Give your child the gift of quality bilingual education in a warm, nurturing environment.</p>
-                  <button className="btn" style={{background:'#84cc16',color:'#1a1a1a'}} onClick={()=>go('contact')}>Get in Touch Today</button>
-                </div>
-              </section>
-            </div>
-          )}
-
-          {page==='about' && (
-            <div className="wrap" style={{paddingTop:60,paddingBottom:80}}>
-              <h1 className="pg">About Gratitude</h1>
-              <p className="pg">A legacy of educational excellence since 2006</p>
-              {[
-                {title:'Our Story', text:'Located in the heart of Mile 3, Nkwen, Gratitude Bilingual Nursery & Primary School was created in September 2006 by our late founder, Mrs. Mani Margarat Kuo. What began as a vision to provide quality, affordable education has grown into a thriving institution serving as a true home away from home for children aged 3-11.'},
-                {title:'Our Mission', text:'Gratitude is a hub of educational innovation with its primary purpose to provide affordable quality education in a religious environment, as its contribution to the development of our children. We combine modern learning techniques with conventional teaching methods to build children who are mentally, physically and morally sound.'},
-                {title:'Our Approach', text:'We strive to give our students the best with very high disciplinary standards. Our state-of-the-art infrastructure and modern facilities provide a conducive arena of learning. This is why Gratitude is not just a place to study — it is every child\'s "home away from home."'},
-                {title:'Academic Excellence', text:'Gratitude prepares children for the Common Entrance and First School Leaving Certificate Examinations (FSLC), setting them up for success in secondary school and beyond. We offer pre-care (kindergarten) and full primary school education.'},
-              ].map((s,i)=>(
-                <div key={i} className="card" style={{marginBottom:24,borderLeft:'5px solid #84cc16'}}>
-                  <h2 style={{fontSize:24,fontWeight:700,color:'#1e3a8a',marginBottom:14}}>{s.title}</h2>
-                  <p style={{lineHeight:1.8,color:'#444',fontSize:16}}>{s.text}</p>
-                </div>
-              ))}
-              <div style={{background:'linear-gradient(135deg,#1e3a8a,#1e40af)',borderRadius:20,padding:'44px',color:'#fff',display:'flex',gap:28,alignItems:'center',flexWrap:'wrap'}}>
-                <div style={{width:100,height:100,background:'#84cc16',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:34,fontWeight:800,color:'#1a1a1a',flexShrink:0}}>CM</div>
-                <div>
-                  <h3 style={{fontSize:26,fontWeight:800,marginBottom:6}}>Catherine Mani</h3>
-                  <p style={{opacity:.85,fontSize:16,marginBottom:10}}>Managing Director</p>
-                  <p style={{opacity:.9,lineHeight:1.6}}>Leading Gratitude with dedication to continuing the legacy of educational excellence established by our founder.</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {page==='programs' && (
-            <div className="wrap" style={{paddingTop:60,paddingBottom:80}}>
-              <h1 className="pg">Our Programs</h1>
-              <p className="pg">Comprehensive bilingual education from ages 3 to 11</p>
-              {[
-                {title:'Nursery (Ages 3-5)',desc:'Play-based learning building foundational literacy, numeracy, and social skills in a caring environment.',features:['Bilingual instruction (English & French)','Foundational numeracy & literacy','Creative play & arts','Social and emotional development']},
-                {title:'Primary (Ages 6-11)',desc:'Full primary education preparing students for national exams and a strong secondary school foundation.',features:['Common Entrance preparation','First School Leaving Certificate (FSLC)','Modern & traditional teaching methods','Character & moral development']},
-              ].map((p,i)=>(
-                <div key={i} className="card" style={{marginBottom:28,borderLeft:'6px solid '+(i===0?'#84cc16':'#1e3a8a')}}>
-                  <h2 style={{fontSize:26,fontWeight:700,color:'#1e3a8a',marginBottom:10}}>{p.title}</h2>
-                  <p style={{fontSize:16,color:'#555',marginBottom:20,lineHeight:1.6}}>{p.desc}</p>
-                  {p.features.map((f,j)=>(
-                    <div key={j} style={{display:'flex',alignItems:'center',gap:10,marginBottom:10,color:'#444',fontSize:15}}>
-                      <ChevronRight size={16} color="#84cc16"/>{f}
-                    </div>
-                  ))}
-                </div>
-              ))}
-              <div style={{background:'#f0f4ff',borderRadius:18,padding:'44px'}}>
-                <h2 style={{fontSize:28,fontWeight:800,textAlign:'center',marginBottom:36}}>Curriculum Subjects</h2>
-                <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:20}}>
-                  {['Language Arts (English & French)','Mathematics','Natural Sciences','Religious Education','Arts & Crafts','Physical Education'].map((s,i)=>(
-                    <div key={i} style={{background:'#fff',borderRadius:12,padding:'20px',borderTop:'4px solid '+(i%2===0?'#1e3a8a':'#84cc16')}}>
-                      <h3 style={{fontSize:16,fontWeight:700,color:'#1e3a8a'}}>{s}</h3>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {page==='staff' && (
-            <div className="wrap" style={{paddingTop:60,paddingBottom:80}}>
-              <h1 className="pg">Our Staff</h1>
-              <p className="pg">Highly qualified, experienced & children-loving teachers</p>
-              <div style={{background:'#fff',borderRadius:14,padding:'28px 32px',textAlign:'center',marginBottom:48,boxShadow:'0 2px 10px rgba(0,0,0,.06)'}}>
-                <p style={{fontSize:17,color:'#444',maxWidth:750,margin:'0 auto',lineHeight:1.7}}>We have put together a staff of highly qualified, experienced, and children-loving teachers. They are the backbone for the existence and success of our institution.</p>
-              </div>
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(270px,1fr))',gap:28}}>
-                {staffList.map((m,i)=>(
-                  <div key={i} className="card" style={{textAlign:'center'}}>
-                    <div style={{width:90,height:90,borderRadius:'50%',background:'linear-gradient(135deg,#1e3a8a,#84cc16)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:28,fontWeight:800,color:'#fff',margin:'0 auto 16px'}}>{initials(m.name)}</div>
-                    <h3 style={{fontSize:20,fontWeight:700,marginBottom:4}}>{m.name}</h3>
-                    <p style={{color:'#1e3a8a',fontWeight:600,fontSize:15,marginBottom:16}}>{m.role}</p>
-                    <div style={{borderTop:'1px solid #e5e7eb',borderBottom:'1px solid #e5e7eb',padding:'14px 0',marginBottom:16}}>
-                      <p style={{fontSize:13,color:'#666',marginBottom:4}}>{m.exp}</p>
-                      <p style={{fontSize:13,color:'#666'}}>{m.note}</p>
-                    </div>
-                    <a href={`mailto:${m.email}`} style={{display:'inline-flex',alignItems:'center',gap:6,color:'#1e3a8a',fontSize:13,fontWeight:600,border:'2px solid #1e3a8a',padding:'8px 16px',borderRadius:8,textDecoration:'none'}}>
-                      <Mail size={14}/> Contact
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {page==='admissions' && (
-            <div className="wrap" style={{paddingTop:60,paddingBottom:80}}>
-              <h1 className="pg">Admissions</h1>
-              <p className="pg">Join the Gratitude family today</p>
-              <div style={{display:'grid',gap:24}}>
-                {[
-                  {title:'Age Requirements', content:<ul style={{paddingLeft:20,color:'#444',lineHeight:2,fontSize:15}}><li><strong>Nursery:</strong> Ages 3-5</li><li><strong>Primary:</strong> Ages 6-11</li></ul>},
-                  {title:'Application Process', content:<ol style={{paddingLeft:20,color:'#444',lineHeight:2,fontSize:15}}><li>Contact us to schedule a visit</li><li>Complete the application form</li><li>Submit required documents (birth certificate, previous school records)</li><li>Meet with our admissions team</li><li>Receive your enrollment confirmation</li></ol>},
-                  {title:'What We Offer', content:<ul style={{paddingLeft:20,color:'#444',lineHeight:2,fontSize:15}}><li>Affordable quality education</li><li>Bilingual instruction (English & French)</li><li>Religious education and moral development</li><li>Modern facilities and teaching methods</li><li>Preparation for Common Entrance and FSLC</li><li>Small class sizes for individual attention</li></ul>},
-                ].map((s,i)=>(
-                  <div key={i} className="card">
-                    <h2 style={{fontSize:22,fontWeight:700,color:'#1e3a8a',marginBottom:16}}>{s.title}</h2>
-                    {s.content}
-                  </div>
-                ))}
-                <div style={{background:'linear-gradient(135deg,#1e3a8a,#1e40af)',borderRadius:16,padding:'40px',color:'#fff',textAlign:'center'}}>
-                  <h2 style={{fontSize:26,fontWeight:800,marginBottom:12}}>Ready to Apply?</h2>
-                  <p style={{opacity:.9,fontSize:16,marginBottom:28,maxWidth:500,margin:'0 auto 28px'}}>Contact us today to learn more about enrollment. We look forward to welcoming your child!</p>
-                  <button className="btn" style={{background:'#84cc16',color:'#1a1a1a'}} onClick={()=>go('contact')}>Contact Admissions</button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {page==='contact' && (
-            <div className="wrap" style={{paddingTop:60,paddingBottom:80}}>
-              <h1 className="pg">Contact Us</h1>
-              <p className="pg">We'd love to hear from you</p>
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))',gap:40}}>
-                <div>
-                  <h2 style={{fontSize:26,fontWeight:800,marginBottom:12}}>Get in Touch</h2>
-                  <p style={{color:'#666',marginBottom:36,lineHeight:1.6}}>Have questions about our programs or admissions? We are here to help!</p>
-                  {[
-                    {icon:<Mail size={22}/>,title:'Email',content:'info@gratitudebnps.com',href:'mailto:info@gratitudebnps.com'},
-                    {icon:<MapPin size={22}/>,title:'Location',content:'Mile 3, Nkwen\nOpposite Full Gospel\nBamenda, Cameroon',href:null},
-                  ].map((c,i)=>(
-                    <div key={i} style={{display:'flex',gap:18,marginBottom:32}}>
-                      <div style={{width:52,height:52,background:'linear-gradient(135deg,#1e3a8a,#84cc16)',borderRadius:12,display:'flex',alignItems:'center',justifyContent:'center',color:'#fff',flexShrink:0}}>{c.icon}</div>
-                      <div>
-                        <h3 style={{fontSize:16,fontWeight:700,marginBottom:6}}>{c.title}</h3>
-                        {c.href ? <a href={c.href} style={{color:'#1e3a8a',textDecoration:'none',fontSize:15}}>{c.content}</a> : <p style={{color:'#666',fontSize:15,whiteSpace:'pre-line',lineHeight:1.6}}>{c.content}</p>}
-                      </div>
-                    </div>
-                  ))}
-                  <div style={{background:'#f0f4ff',borderRadius:12,padding:'20px 24px'}}>
-                    <h3 style={{fontWeight:700,marginBottom:8}}>School Hours</h3>
-                    <p style={{color:'#444',fontSize:15}}>Monday - Friday: 7:30 AM - 3:30 PM</p>
-                  </div>
-                </div>
-                <div className="card">
-                  <h2 style={{fontSize:22,fontWeight:800,marginBottom:28}}>Send a Message</h2>
-                  {[
-                    {label:'Your Name',type:'text',placeholder:'John Doe'},
-                    {label:'Email Address',type:'email',placeholder:'john@example.com'},
-                    {label:'Phone Number',type:'tel',placeholder:'+237 XXX XXX XXX'},
-                  ].map((f,i)=>(
-                    <div key={i} style={{marginBottom:18}}>
-                      <label style={{display:'block',fontSize:13,fontWeight:600,marginBottom:6}}>{f.label}</label>
-                      <input type={f.type} placeholder={f.placeholder} style={{width:'100%',padding:'11px 14px',border:'2px solid #e5e7eb',borderRadius:8,fontSize:15,fontFamily:'inherit',outline:'none'}}/>
-                    </div>
-                  ))}
-                  <div style={{marginBottom:18}}>
-                    <label style={{display:'block',fontSize:13,fontWeight:600,marginBottom:6}}>Subject</label>
-                    <select style={{width:'100%',padding:'11px 14px',border:'2px solid #e5e7eb',borderRadius:8,fontSize:15,fontFamily:'inherit',outline:'none'}}>
-                      <option>General Inquiry</option><option>Admissions</option><option>Programs</option><option>Other</option>
-                    </select>
-                  </div>
-                  <div style={{marginBottom:24}}>
-                    <label style={{display:'block',fontSize:13,fontWeight:600,marginBottom:6}}>Message</label>
-                    <textarea rows={4} placeholder="How can we help you?" style={{width:'100%',padding:'11px 14px',border:'2px solid #e5e7eb',borderRadius:8,fontSize:15,fontFamily:'inherit',outline:'none',resize:'vertical'}}/>
-                  </div>
-                  <button className="btn" style={{width:'100%',justifyContent:'center'}}>Send Message</button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          <footer style={{background:'#111',color:'#fff',padding:'52px 24px 24px',marginTop:60}}>
-            <div className="wrap">
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:36,marginBottom:40}}>
-                <div>
-                  <div style={{fontWeight:700,fontSize:17,marginBottom:6}}>Gratitude Bilingual</div>
-                  <div style={{fontSize:13,opacity:.7,marginBottom:8}}>Nursery & Primary School</div>
-                  <div style={{color:'#84cc16',fontSize:13,fontStyle:'italic'}}>"Home away from home"</div>
-                </div>
-                <div>
-                  <div style={{color:'#84cc16',fontWeight:600,fontSize:14,marginBottom:12}}>Quick Links</div>
-                  {nav.map(n=><button key={n.id} className="nb" onClick={()=>go(n.id)} style={{display:'block',color:'rgba(255,255,255,.75)',fontSize:13,padding:'4px 0',textAlign:'left'}}>{n.name}</button>)}
-                </div>
-                <div>
-                  <div style={{color:'#84cc16',fontWeight:600,fontSize:14,marginBottom:12}}>Contact</div>
-                  <p style={{fontSize:13,opacity:.75,lineHeight:1.8}}>Mile 3, Nkwen, Bamenda<br/>Opposite Full Gospel<br/>info@gratitudebnps.com</p>
-                </div>
-                <div>
-                  <div style={{color:'#84cc16',fontWeight:600,fontSize:14,marginBottom:12}}>About</div>
-                  <p style={{fontSize:13,opacity:.75,lineHeight:1.8}}>Founded September 2006<br/>by Mrs. Mani Margarat Kuo<br/>Bamenda, Cameroon</p>
-                </div>
-              </div>
-              <div style={{borderTop:'1px solid rgba(255,255,255,.1)',paddingTop:20,textAlign:'center',fontSize:13,opacity:.6}}>
-                © {new Date().getFullYear()} Gratitude Bilingual Nursery & Primary School. All rights reserved.
-              </div>
-            </div>
-          </footer>
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="logo" href="#" onclick="return showPage('home')">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
-      );
-    }
+        <div class="logo-text">
+          <div class="t1">Gratitude Bilingual</div>
+          <div class="t2">Nursery &amp; Primary School</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#" onclick="return showPage('home')" id="nav-home" class="active">Home</a>
+        <a href="#" onclick="return showPage('about')" id="nav-about">About</a>
+        <a href="#" onclick="return showPage('programs')" id="nav-programs">Programs</a>
+        <a href="#" onclick="return showPage('staff')" id="nav-staff">Staff</a>
+        <a href="#" onclick="return showPage('admissions')" id="nav-admissions">Admissions</a>
+        <a href="#" onclick="return showPage('contact')" id="nav-contact">Contact</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" onclick="return showPage('home')">Home</a>
+      <a href="#" onclick="return showPage('about')">About</a>
+      <a href="#" onclick="return showPage('programs')">Programs</a>
+      <a href="#" onclick="return showPage('staff')">Staff</a>
+      <a href="#" onclick="return showPage('admissions')">Admissions</a>
+      <a href="#" onclick="return showPage('contact')">Contact</a>
+    </div>
+  </div>
+</nav>
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-badge">Est. 2006 &middot; Bamenda, Cameroon</div>
+      <h1>Your Child's <span>Home Away from Home</span></h1>
+      <p>Affordable quality bilingual education for children aged 3&ndash;11, preparing them for Common Entrance, FSLC and life beyond.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn" onclick="return showPage('admissions')">Apply Now &rsaquo;</a>
+        <a href="#" class="btn-outline" onclick="return showPage('about')">Learn More</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-icon">&#10084;</div><h3>18+</h3><p>Years of Excellence</p></div>
+        <div class="stat"><div class="stat-icon">&#128101;</div><h3>Ages 3&ndash;11</h3><p>Nursery &amp; Primary</p></div>
+        <div class="stat"><div class="stat-icon">&#127941;</div><h3>CAPIEM</h3><p>Certified Teachers</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="why">
+    <div class="wrap">
+      <h2 class="section-title">Why Choose Gratitude?</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feat-icon" style="background:#84cc16;">&#128218;</div>
+          <h3>Bilingual Education</h3>
+          <p>English and French instruction preparing students for a multilingual future.</p>
+        </div>
+        <div class="feature">
+          <div class="feat-icon" style="background:#1e3a8a;">&#10084;</div>
+          <h3>Religious Values</h3>
+          <p>Character development rooted in faith, discipline and moral excellence.</p>
+        </div>
+        <div class="feature">
+          <div class="feat-icon" style="background:#84cc16;">&#127968;</div>
+          <h3>Modern Facilities</h3>
+          <p>State-of-the-art infrastructure providing a conducive learning environment.</p>
+        </div>
+        <div class="feature">
+          <div class="feat-icon" style="background:#1e3a8a;">&#128101;</div>
+          <h3>Expert Staff</h3>
+          <p>Highly qualified, CAPIEM-certified teachers who genuinely love children.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Ready to Join Our Family?</h2>
+      <p>Give your child the gift of quality bilingual education in a warm, nurturing environment.</p>
+      <a href="#" class="btn btn-green" onclick="return showPage('contact')">Get in Touch Today</a>
+    </div>
+  </section>
+</div>
+
+<div id="page-about" class="page">
+  <div class="page-header"><h1>About Gratitude</h1><p>A legacy of educational excellence since 2006</p></div>
+  <div class="wrap" style="padding-bottom:80px;">
+    <div class="card card-accent"><h2>Our Story</h2><p>Located in the heart of Mile 3, Nkwen, Gratitude Bilingual Nursery &amp; Primary School was created in September 2006 by our late founder, Mrs. Mani Margarat Kuo. What began as a vision to provide quality, affordable education has grown into a thriving institution that serves as a true home away from home for children aged 3&ndash;11.</p></div>
+    <div class="card card-accent"><h2>Our Mission</h2><p>Gratitude is a hub of educational innovation with its primary purpose to provide affordable quality education in a religious environment, as its contribution to the development of our children. We combine modern learning techniques with conventional teaching methods to build children who are mentally, physically and morally sound.</p></div>
+    <div class="card card-accent"><h2>Our Approach</h2><p>We strive to give our students the best with very high disciplinary standards. Our state-of-the-art infrastructure and modern facilities provide a conducive arena of learning. This is why Gratitude is not just a place to study &mdash; it is every child's <strong>"home away from home."</strong></p></div>
+    <div class="card card-accent"><h2>Academic Excellence</h2><p>Gratitude prepares children for the Common Entrance and First School Leaving Certificate Examinations (FSLC), setting them up for success in secondary school and beyond. We offer pre-care (kindergarten) and full primary school education for children aged 3&ndash;11.</p></div>
+    <div class="director">
+      <div class="dir-avatar">CM</div>
+      <div><h3>Catherine Mani</h3><p class="role">Managing Director</p><p class="bio">Leading Gratitude with dedication to continuing the legacy of educational excellence established by our founder, the late Mrs. Mani Margarat Kuo.</p></div>
+    </div>
+  </div>
+</div>
+
+<div id="page-programs" class="page">
+  <div class="page-header"><h1>Our Programs</h1><p>Comprehensive bilingual education from ages 3 to 11</p></div>
+  <div class="wrap" style="padding-bottom:80px;">
+    <div class="card card-accent">
+      <h2>Nursery (Ages 3&ndash;5)</h2>
+      <p style="margin-bottom:16px;">Play-based learning building foundational literacy, numeracy, and social skills in a caring, bilingual environment.</p>
+      <ul><li>Bilingual instruction (English &amp; French)</li><li>Foundational numeracy &amp; literacy</li><li>Creative play &amp; arts</li><li>Social and emotional development</li></ul>
+    </div>
+    <div class="card card-blue">
+      <h2>Primary (Ages 6&ndash;11)</h2>
+      <p style="margin-bottom:16px;">Full primary education preparing students for national examinations and a strong secondary school foundation.</p>
+      <ul><li>Common Entrance Examination preparation</li><li>First School Leaving Certificate (FSLC)</li><li>Modern &amp; traditional teaching methods</li><li>Character &amp; moral development</li></ul>
+    </div>
+    <div class="curriculum">
+      <h2>Curriculum Subjects</h2>
+      <div class="curriculum-grid">
+        <div class="subj"><h3>Language Arts (English &amp; French)</h3></div>
+        <div class="subj"><h3>Mathematics</h3></div>
+        <div class="subj"><h3>Natural Sciences</h3></div>
+        <div class="subj"><h3>Religious Education</h3></div>
+        <div class="subj"><h3>Arts &amp; Crafts</h3></div>
+        <div class="subj"><h3>Physical Education</h3></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-staff" class="page">
+  <div class="page-header"><h1>Our Staff</h1><p>Highly qualified, experienced &amp; children-loving teachers</p></div>
+  <div class="wrap" style="padding-bottom:80px;">
+    <div class="card" style="text-align:center;margin-bottom:40px;"><p style="font-size:17px;color:#444;max-width:700px;margin:0 auto;line-height:1.7;">We have put together a staff of highly qualified, experienced, and children-loving teachers. They are the backbone for the existence and success of our institution.</p></div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="avatar">BT</div><h3>Banseka Terence</h3><p class="staff-role">Head Teacher</p>
+        <div class="staff-detail"><p>CAPIEM Holder</p><p>9 years of experience</p><p>Art &amp; Craft enthusiast</p></div>
+        <a href="mailto:banseka.terence@gratitudebnps.com" class="staff-email">&#9993; Contact</a>
+      </div>
+      <div class="staff-card">
+        <div class="avatar">NN</div><h3>Ntaintain Natalia</h3><p class="staff-role">Religious Head</p>
+        <div class="staff-detail"><p>CAPIEM Holder</p><p>10+ years of experience</p><p>Religious development specialist</p></div>
+        <a href="mailto:ntaintain.natalia@gratitudebnps.com" class="staff-email">&#9993; Contact</a>
+      </div>
+      <div class="staff-card">
+        <div class="avatar">NJ</div><h3>Nlinwe Jasper</h3><p class="staff-role">Communications Head</p>
+        <div class="staff-detail"><p>CAPIEM Holder</p><p>9+ years of experience</p><p>Photography &amp; school magazine</p></div>
+        <a href="mailto:nlinwe.jasper@gratitudebnps.com" class="staff-email">&#9993; Contact</a>
+      </div>
+      <div class="staff-card">
+        <div class="avatar">DE</div><h3>Diang Elizabeth</h3><p class="staff-role">Assistant Head Teacher</p>
+        <div class="staff-detail"><p>CAPIEM Holder</p><p>9+ years of experience</p><p>Overall child development</p></div>
+        <a href="mailto:diang.elizabeth@gratitudebnps.com" class="staff-email">&#9993; Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-admissions" class="page">
+  <div class="page-header"><h1>Admissions</h1><p>Join the Gratitude family today</p></div>
+  <div class="wrap" style="padding-bottom:80px;">
+    <div class="card card-accent"><h2>Age Requirements</h2><ul><li><strong>Nursery:</strong> Ages 3&ndash;5</li><li><strong>Primary:</strong> Ages 6&ndash;11</li></ul></div>
+    <div class="card card-accent"><h2>Application Process</h2><ol><li>Contact us to schedule a school visit</li><li>Complete the application form</li><li>Submit required documents (birth certificate, previous school records)</li><li>Meet with our admissions team</li><li>Receive your enrollment confirmation</li></ol></div>
+    <div class="card card-accent"><h2>What We Offer</h2><ul><li>Affordable quality education</li><li>Bilingual instruction (English &amp; French)</li><li>Religious education and moral development</li><li>Modern facilities and teaching methods</li><li>Preparation for Common Entrance and FSLC</li><li>Small class sizes for individual attention</li></ul></div>
+    <div class="admit-cta">
+      <h2>Ready to Apply?</h2>
+      <p>Contact us today to learn more about enrollment. We look forward to welcoming your child to the Gratitude family!</p>
+      <a href="#" class="btn btn-green" onclick="return showPage('contact')">Contact Admissions</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-contact" class="page">
+  <div class="page-header"><h1>Contact Us</h1><p>We'd love to hear from you</p></div>
+  <div class="wrap" style="padding-bottom:80px;">
+    <div class="contact-grid">
+      <div>
+        <h2 style="font-size:26px;font-weight:800;margin-bottom:12px;">Get in Touch</h2>
+        <p style="color:#666;margin-bottom:36px;line-height:1.6;">Have questions about our programs or admissions? We are here to help!</p>
+        <div class="contact-method">
+          <div class="method-icon">&#9993;</div>
+          <div class="method-details"><h3>Email</h3><a href="mailto:info@gratitudebnps.com">info@gratitudebnps.com</a></div>
+        </div>
+        <div class="contact-method">
+          <div class="method-icon">&#128205;</div>
+          <div class="method-details"><h3>Location</h3><p>Mile 3, Nkwen<br>Opposite Full Gospel<br>Bamenda, Cameroon</p></div>
+        </div>
+        <div class="hours-box"><h3>School Hours</h3><p>Monday &ndash; Friday: 7:30 AM &ndash; 3:30 PM</p></div>
+      </div>
+      <div class="card">
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:28px;">Send a Message</h2>
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="John Doe"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+237 XXX XXX XXX"></div>
+        <div class="form-group"><label>Subject</label><select><option>General Inquiry</option><option>Admissions</option><option>Programs</option><option>Other</option></select></div>
+        <div class="form-group"><label>Message</label><textarea rows="4" placeholder="How can we help you?"></textarea></div>
+        <button class="btn" style="width:100%;justify-content:center;" onclick="alert('Thank you! We will be in touch soon.')">Send Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col"><h3>Gratitude Bilingual</h3><p>Nursery &amp; Primary School</p><p class="footer-tagline">"Home away from home"</p></div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('programs')">Programs</a>
+        <a onclick="showPage('staff')">Staff</a>
+        <a onclick="showPage('admissions')">Admissions</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+      <div class="footer-col"><h4>Contact</h4><p>Mile 3, Nkwen, Bamenda<br>Opposite Full Gospel<br>info@gratitudebnps.com</p></div>
+      <div class="footer-col"><h4>About</h4><p>Founded September 2006<br>by Mrs. Mani Margarat Kuo<br>Bamenda, Cameroon</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; <span id="yr"></span> Gratitude Bilingual Nursery &amp; Primary School. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+    document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+    document.getElementById('page-'+id).classList.add('active');
+    var n = document.getElementById('nav-'+id);
+    if(n) n.classList.add('active');
+    document.getElementById('mobileMenu').classList.remove('open');
+    window.scrollTo({top:0,behavior:'smooth'});
+    return false;
+  }
+  function toggleMenu(){
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
 </body>
 </html>
